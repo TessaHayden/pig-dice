@@ -55,7 +55,20 @@ How will information be collected from the user? How will it be displayed?
 
 Describe currentPlayer();
 
-Test: "It should determine which player is rolling."
+Test: "It should determine if a player is rolling."
 Code: 
 if (player === "yes"){}
 Expected Output: yes
+
+Test: "It should test to see if there is more than one player."
+Code:
+const numPlayersArr = [];
+let player1 {true};
+let player2 {false};
+
+Test: "It should determine which player is rolling if there is more than one player."
+Code: 
+player1 {true};
+player2 {false}
+
+Expected Output: player1
