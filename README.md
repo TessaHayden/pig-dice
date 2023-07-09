@@ -1,10 +1,3 @@
-What will happen when a user clicks "Play"?
-What objects will you need?
-What key-value pairs will each object need to contain in order for the game to work?
-What functions?
-How will these be triggered throughout the gameplay?
-How will information be collected from the user? How will it be displayed?
-
 ### So how do you play Pig?
 * Choose a player to go first. That player throws a die and scores as many points as the total shown on the die providing the die doesn’t roll a 1. The player may continue rolling and accumulating points (but risk rolling a 1) or end his turn.
 
@@ -14,3 +7,55 @@ How will information be collected from the user? How will it be displayed?
 
 ### How do you win?
 The first player to accumulate 100 or more points wins the game.
+
+===
+
+ What will happen when a user clicks "Play"?:
+- It will display a button to start rolling the die.
+
+What objects will you need?:
+- player object (each player will need a player object instance created for it)
+- die object
+- score object
+
+What key-value pairs will each object need to contain in order for the game to work?
+- player object will require:
+1. turn : yes/no (which player is currently rolling);
+2. current score : currentScore;
+
+- The die object will require:
+1. die value : randomNum() (a random number 1-6);
+
+- The score object will require:
+1. current score: currentScore;
+2. die roll : randomNum();
+3. new score : currentScore + dieRoll;
+4. goal score : 100 points
+
+What functions?
+- function to determine number of players
+- function to pick first player
+- function to switch players after player turn
+- function to roll die
+- function to keep track of score
+- function to add up score
+- function to determine if the goal has been met
+- function to end game
+- function to reset game
+- function to display results
+
+How will these be triggered throughout the gameplay?
+> The events will be triggered through button clicks
+
+How will information be collected from the user? How will it be displayed?
+> Information will be collected with the score object and displayed in a div
+
+Describe currentPlayer();
+
+Test: "It should select the player rolling."
+Code: 
+player1 {
+    turn : "yes"
+};
+
+Expected Output: yes
