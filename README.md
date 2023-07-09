@@ -20,8 +20,10 @@ What objects will you need?:
 
 What key-value pairs will each object need to contain in order for the game to work?
 - player object will require:
-1. turn : yes/no (which player is currently rolling);
-2. current score : currentScore;
+1. turn = false;
+2. score = {};
+3. roll = {}
+4. id = currentId;
 
 - The die object will require:
 1. die value : randomNum() (a random number 1-6);
@@ -33,6 +35,7 @@ What key-value pairs will each object need to contain in order for the game to w
 4. goal score : 100 points
 
 What functions?
+- function to create new player
 - function to determine number of players
 - function to pick first player
 - function to switch players after player turn
@@ -52,10 +55,7 @@ How will information be collected from the user? How will it be displayed?
 
 Describe currentPlayer();
 
-Test: "It should select the player rolling."
+Test: "It should determine which player is rolling."
 Code: 
-player1 {
-    turn : "yes"
-};
-
+if (player === "yes"){}
 Expected Output: yes
