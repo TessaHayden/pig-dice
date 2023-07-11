@@ -7,10 +7,8 @@
 
 ### How do you win?
 The first player to accumulate 100 or more points wins the game.
-
 ===
-
- What will happen when a user clicks "Play"?:
+What will happen when a user clicks "Play"?:
 - It will display a button to start rolling the die.
 
 What objects will you need?:
@@ -19,6 +17,8 @@ What objects will you need?:
 - score object
 
 What key-value pairs will each object need to contain in order for the game to work?
+
+* Game object that houses all the separate objects:
 - player object will require:
 1. turn = false;
 2. score = {};
@@ -57,8 +57,11 @@ Describe currentPlayer();
 
 Test: "It should determine if a player is rolling."
 Code: 
-if (player === "yes"){}
-Expected Output: yes
+let player = {
+    turn: true,
+};
+if (player.turn === true){}
+Expected Output: true
 
 Test: "It should test to see if there is more than one player."
 Code:
@@ -66,9 +69,13 @@ const numPlayersArr = [];
 let player1 {true};
 let player2 {false};
 
-Test: "It should determine which player is rolling if there is more than one player."
+Test: "It should determine which player's turn it is if there is more than one player."
 Code: 
 player1 {true};
 player2 {false}
-
 Expected Output: player1
+
+Test: "It should map over every element in the player array and check the turn property for true/false value."
+Code:
+numPlayerArr.forEach(el => currentPlayer(el))
+

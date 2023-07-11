@@ -1,39 +1,36 @@
-// function Player() {
-//     this.turn = false;
-//     this.score = {};
-//     this.roll = {};
-//     this.currentId = 0;
-// }
-
-// Player.prototype.addPlayer = function (player) {
-//     player.id = this.assignId();
-// };
-// Player.prototype.assignId = function () {
-//     this.currentId += 1;
-//     return this.currentId;
-// };
-
-// Player.prototype.currentPlayer = function (turn) {
-//     if (player.turn === "yes") {
-//         console.log("true");
-//     }
-//     return false;
-// };
-
-//Hardcoded players to be deleted
-let player1 = {
-    turn: true,
+function GameObj() {
+    this.players = {},
+    this.scores = {},
+    this.currentId = 0
 }
-let player2 = {
-    turn: false,
-}
-const numPlayerArr = [];
 
-numPlayerArr.push(player1, player2);
-
-if (numPlayerArr.length > 0) {
-    console.log(numPlayerArr.length)
+GameObj.prototype.addPlayer = function (player) {
+    player.id = this.assignId();
+    this.players[player.id] = player;
 };
 
+GameObj.prototype.assignId = function () {
+    this.currentId += 1;
+    return this.currentId;
+};
+
+function Player(name) {
+    this.name = name,
+    this.score = 0,
+    this.dieRoll = 0,
+}
+
+Player.prototype.dieRoller = function () {
+   return Math.floor(Math.random() * 6); 
+}
+
+Player.prototype.playerTurn = function (player) {
+    
+}
+
+function Score(player1Score, player2Score) {
+    this.player1Score = player1Score,
+    this.player2Score = player2Score
+}
 
 
