@@ -53,6 +53,15 @@ How will these be triggered throughout the gameplay?
 How will information be collected from the user? How will it be displayed?
 > Information will be collected with the score object and displayed in a div
 
+
+Describe dieRoller()
+
+Test: "It should choose a random, whole number between 1 and 6."
+Code:
+Math.floor(Math.random() * 6);
+Expected Output: A number between and including, 1 to 6, in random patterns.
+
+
 Describe currentPlayer();
 
 Test: "It should determine if a player is rolling."
@@ -78,4 +87,5 @@ Expected Output: player1
 Test: "It should map over every element in the player array and check the turn property for true/false value."
 Code:
 numPlayerArr.forEach(el => currentPlayer(el))
+
 
