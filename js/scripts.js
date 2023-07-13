@@ -14,18 +14,39 @@ GameObj.prototype.assignId = function () {
     return this.currentId;
 };
 
-function Player(name, score, dieRoll) {
+function Player(name, score, dieRoll, turn) {
     this.name = name,
     this.score = score,
-    this.dieRoll = dieRoll
+    this.dieRoll = dieRoll,
+    this.turn = turn,
 }
 
 const dieRoller = function () {
-    Math.floor(Math.random() * 6);
+    return Math.floor(Math.random() * 6);
+}
+
+function rollOptions() {
+    let dieRoll = dieRoller();
+    if (dieRoll > 1) {
+        console.log("working")
+    }
 }
 
 
-window.addEventListener("load", function () {
+window.addEventListener("load", function (dieRoller) {
     const playBtn = document.getElementById("play-btn");
-    
+    const rollBtn = document.getElementById("roll-btn");
+    rollBtn.setAttribute("class", "hidden");
+    const holdBtn = document.getElementById("hold-btn");
+    holdBtn.setAttribute("class", "hidden");
+    let dieRoller = dieRoller();
+    playBtn.addEventListener("click", function (dieRoller) {
+        if (dieRoller !== 1) {
+            rollBtn.removeAttribute("class");
+            rollBtn.setAttribute("class", "btn btn-primary");
+            holdBtn.removeAttribute("class");
+            holdBtn.setAttribute("class", "btn btn-warning");
+     }
+    })
 })
+

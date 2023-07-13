@@ -89,3 +89,11 @@ Code:
 numPlayerArr.forEach(el => currentPlayer(el))
 
 
+Describe rollOptions();
+
+Test: "It should use branching logic to determine if the player has the option of * rolling again, * holding and passing the turn OR * losing their points and their turn."
+Code:
+    if (dieRoll > 1) {
+        console.log("working")
+    }
+Expected Output: "working" for any number 2 - 6, undefined if 1."
