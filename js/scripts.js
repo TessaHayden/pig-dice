@@ -14,22 +14,40 @@ GameObj.prototype.assignId = function () {
     return this.currentId;
 };
 
-function Player(name, score, dieRoll, turn) {
+function Player(name, turn) {
     this.name = name,
-    this.score = score,
-    this.dieRoll = dieRoll,
     this.turn = turn,
+    this.score = 0
 }
 
-const dieRoller = function () {
-    return Math.floor(Math.random() * 6);
+const dieRoller = function (min, max) {
+    return Math.floor(Math.random() * (max-min) + min)
+};
+
+function rollOptions(player) {
+    let dieNum = dieRoller(1, 6);
+    if (dieNum !== 1) {
+        rollBtn.removeAttribute("class");
+        rollBtn.setAttribute("class", "btn btn-primary");
+        holdBtn.removeAttribute("class");
+        holdBtn.setAttribute("class", "btn btn-warning");
+        } else if (dieNum === 1) {
+            console.log("lose turn")
+        }
 }
 
-function rollOptions() {
-    let dieRoll = dieRoller();
-    if (dieRoll > 1) {
-        console.log("working")
-    }
+function addDieRoll(player) {
+    let dieNum = dieRoller(1, 6);
+    let currentScore = player.score
+    if (dieNum !== 1) {
+        console.log(dieNum + currentScore)
+    } 
+}
+
+function dispDieRoll() {
+    let rollNum = dieRoller(1, 6);
+    dieRoller();
+    document.getElementById("player-roll").innerText = rollNum;
 }
 
 
@@ -39,14 +57,9 @@ window.addEventListener("load", function (dieRoller) {
     rollBtn.setAttribute("class", "hidden");
     const holdBtn = document.getElementById("hold-btn");
     holdBtn.setAttribute("class", "hidden");
-    let dieRoller = dieRoller();
-    playBtn.addEventListener("click", function (dieRoller) {
-        if (dieRoller !== 1) {
-            rollBtn.removeAttribute("class");
-            rollBtn.setAttribute("class", "btn btn-primary");
-            holdBtn.removeAttribute("class");
-            holdBtn.setAttribute("class", "btn btn-warning");
-     }
+    playBtn.addEventListener("click", function () {
+        dispDieRoll();
+        rollOptions();
     })
 })
 
